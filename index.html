@@ -21,69 +21,48 @@ header{
   font-weight:bold;
 }
 
-/* search */
-.search-box{
-  padding:10px;
-  text-align:center;
-  background:white;
-}
-
-.search-box input{
-  width:90%;
-  padding:10px;
-  border-radius:8px;
-  border:1px solid #ccc;
-  font-size:16px;
-}
-
-/* filter buttons */
-.filters{
-  padding:10px;
-  text-align:center;
-  background:white;
-}
-
-.filters button{
-  padding:8px 12px;
-  margin:5px;
-  border:none;
-  border-radius:20px;
-  background:#e0e0e0;
-  cursor:pointer;
-}
-
-.filters button:hover{
-  background:#1e90ff;
-  color:white;
-}
-
-.container{
-  padding:10px;
-}
-
-.videos{
+/* playlist buttons */
+.playlists{
+  padding:15px;
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
   gap:10px;
+}
+
+.pl-btn{
+  background:white;
+  border-radius:10px;
+  padding:20px 10px;
+  text-align:center;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* video list */
+.videos{
+  display:none;
+  padding:10px;
 }
 
 .card{
   background:white;
-  border-radius:10px;
-  overflow:hidden;
+  margin-bottom:10px;
+  padding:10px;
+  border-radius:8px;
   box-shadow:0 2px 5px rgba(0,0,0,0.1);
   cursor:pointer;
 }
 
-.card img{
-  width:100%;
-}
-
-.card p{
-  padding:8px;
-  margin:0;
-  font-size:14px;
-  text-align:center;
+/* back button */
+.back{
+  margin:10px;
+  padding:8px 12px;
+  background:#1e90ff;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
 }
 
 /* player */
@@ -107,12 +86,54 @@ header{
 <body>
 
 <header>
- Mathscript Academy – Study Platform
+ Mathscript Academy
 </header>
 
-<!-- SEARCH -->
-<div class="search-box">
-  <input type="text" id="search" placeholder="Search lecture..." onkeyup="searchVideo()">
+<!-- HOME SCREEN PLAYLIST -->
+<div id="home" class="playlists">
+
+  <div class="pl-btn" onclick="openPlaylist('calculation')">
+    Calculation
+  </div>
+
+  <div class="pl-btn" onclick="openPlaylist('remainder')">
+    Remainder Theorem
+  </div>
+
+  <div class="pl-btn" onclick="openPlaylist('unitdigit')">
+    Unit Digit
+  </div>
+
 </div>
 
-<!-- FILTER BUTTONS
+
+<!-- PLAYLIST 1 -->
+<div id="calculation" class="videos">
+  <button class="back" onclick="goHome()">⬅ Back</button>
+
+  <div class="card" onclick="playVideo('DzW-Yerr4g0')">
+    Quick Addition Trick
+  </div>
+
+  <div class="card" onclick="playVideo('wF_VCqe18vU')">
+    Fast Calculation Method
+  </div>
+</div>
+
+
+<!-- PLAYLIST 2 -->
+<div id="remainder" class="videos">
+  <button class="back" onclick="goHome()">⬅ Back</button>
+
+  <div class="card" onclick="playVideo('haVRJ_VONcw')">
+    Remainder Theorem Basics
+  </div>
+</div>
+
+
+<!-- PLAYLIST 3 -->
+<div id="unitdigit" class="videos">
+  <button class="back" onclick="goHome()">⬅ Back</button>
+
+  <div class="card" onclick="playVideo('mvdFvipqtKg')">
+    Uni
