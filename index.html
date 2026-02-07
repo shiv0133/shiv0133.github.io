@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mathscript Academy Videos</title>
+<title>Mathscript Academy</title>
 
 <style>
 body{
@@ -11,6 +11,7 @@ body{
   font-family:Arial, sans-serif;
   background:#f0f2f5;
 }
+
 header{
   background:linear-gradient(45deg,#1e90ff,#0066ff);
   color:white;
@@ -19,11 +20,14 @@ header{
   font-size:22px;
   font-weight:bold;
 }
+
+/* search */
 .search-box{
   padding:10px;
   text-align:center;
   background:white;
 }
+
 .search-box input{
   width:90%;
   padding:10px;
@@ -31,20 +35,38 @@ header{
   border:1px solid #ccc;
   font-size:16px;
 }
+
+/* filter buttons */
+.filters{
+  padding:10px;
+  text-align:center;
+  background:white;
+}
+
+.filters button{
+  padding:8px 12px;
+  margin:5px;
+  border:none;
+  border-radius:20px;
+  background:#e0e0e0;
+  cursor:pointer;
+}
+
+.filters button:hover{
+  background:#1e90ff;
+  color:white;
+}
+
 .container{
   padding:10px;
 }
-.topic{
-  margin-top:15px;
-}
-.topic h2{
-  margin:10px 5px;
-}
+
 .videos{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
   gap:10px;
 }
+
 .card{
   background:white;
   border-radius:10px;
@@ -52,15 +74,19 @@ header{
   box-shadow:0 2px 5px rgba(0,0,0,0.1);
   cursor:pointer;
 }
+
 .card img{
   width:100%;
 }
+
 .card p{
   padding:8px;
   margin:0;
   font-size:14px;
   text-align:center;
 }
+
+/* player */
 .player{
   position:fixed;
   bottom:0;
@@ -70,6 +96,7 @@ header{
   background:black;
   display:none;
 }
+
 .player iframe{
   width:100%;
   height:100%;
@@ -80,72 +107,12 @@ header{
 <body>
 
 <header>
- Mathscript Academy – Study Videos
+ Mathscript Academy – Study Platform
 </header>
 
+<!-- SEARCH -->
 <div class="search-box">
   <input type="text" id="search" placeholder="Search lecture..." onkeyup="searchVideo()">
 </div>
 
-<div class="container" id="videoContainer">
-
-  <div class="topic">
-    <h2>Mathscript Academy – Tricks & Quant</h2>
-    <div class="videos">
-
-      <!-- Video 1 -->
-      <div class="card" data-title="quick addition trick" onclick="playVideo('DzW-Yerr4g0')">
-        <img src="https://img.youtube.com/vi/DzW-Yerr4g0/0.jpg">
-        <p>Quick Addition Trick</p>
-      </div>
-
-      <!-- Video 2 -->
-      <div class="card" data-title="unit digit tricks" onclick="playVideo('wF_VCqe18vU')">
-        <img src="https://img.youtube.com/vi/wF_VCqe18vU/0.jpg">
-        <p>Unit Digit Tricks</p>
-      </div>
-
-      <!-- Video 3 -->
-      <div class="card" data-title="squares ending with 5" onclick="playVideo('mvdFvipqtKg')">
-        <img src="https://img.youtube.com/vi/mvdFvipqtKg/0.jpg">
-        <p>Squares Ending With 5</p>
-      </div>
-
-      <!-- Video 4 -->
-      <div class="card" data-title="remainder theorem trick" onclick="playVideo('haVRJ_VONcw')">
-        <img src="https://img.youtube.com/vi/haVRJ_VONcw/0.jpg">
-        <p>Remainder Theorem Trick</p>
-      </div>
-
-    </div>
-  </div>
-
-</div>
-
-<!-- Player -->
-<div class="player" id="player">
-  <iframe id="frame" src="" allowfullscreen></iframe>
-</div>
-
-<script>
-function playVideo(id){
-  document.getElementById("player").style.display="block";
-  document.getElementById("frame").src="https://www.youtube.com/embed/"+id;
-}
-
-function searchVideo(){
-  let input=document.getElementById("search").value.toLowerCase();
-  let cards=document.querySelectorAll(".card");
-  cards.forEach(card=>{
-    let title=card.getAttribute("data-title");
-    if(title.includes(input)){
-      card.style.display="block";
-    }else{
-      card.style.display="none";
-    }
-  });
-}
-</script>
-
-</body>
-</html>
+<!-- FILTER BUTTONS
